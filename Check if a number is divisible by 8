@@ -1,0 +1,18 @@
+class Solution{
+    int DivisibleByEight(String s){
+        //code here
+        int len=s.length();
+       
+       if(len > 3)
+       {
+           String num=s.substring(len-3);
+           int n=Integer.parseInt(num);
+           return n%8==0 ? 1: -1;
+       }
+        else{
+            int n=Integer.parseInt(s);
+           return n%8 == 0 ? 1: -1;
+        }
+  
+    }
+}
