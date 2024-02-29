@@ -1,0 +1,29 @@
+class Solution
+{
+    long countTriplets(long arr[], int n,int sum)
+    {
+        Arrays.sort(arr);
+        long count=0;
+        
+        for(long i=0;i<n;i++)
+        {
+            long start=i+1;
+            long end=n-1;
+            
+            while(start<end)
+            {
+                  int triplet=0;
+                  triplet = (int) (arr[(int)i] + arr[(int) start] + arr[(int) end]); 
+                if(triplet<sum)
+                {
+                    count+=(end-start);
+                    start++;
+                }
+                else{
+                    end--;
+                }
+            }
+        }
+        return count;
+    }
+}
