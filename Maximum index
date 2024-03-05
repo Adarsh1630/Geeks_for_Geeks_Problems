@@ -1,0 +1,42 @@
+class Solution{
+    
+    // A[]: input array
+    // N: size of array
+    // Function to find the maximum index difference.
+    static int maxIndexDiff(int a[], int n) { 
+        
+        // Your code here
+        int l[]=new int[n];
+         int r[]=new int[n];
+         
+         l[0]=a[0];
+         r[n-1]=a[n-1];
+         
+         for(int i=1;i<n;i++)
+         {
+             l[i]=Math.min(l[i-1],a[i]);
+         }
+      
+         for(int j=n-2;j>=0;j--)
+         {
+             r[j]=Math.max(r[j+1],a[j]);
+         }
+         
+         int i=0,j=0;
+        
+        int result=0;
+        while(i<n && j<n)
+        {
+            if(l[i]<=r[j])
+            {
+                result=Math.max(result,(j-i));
+                j++;
+            }
+            else{
+                i++;
+            }
+        }
+        
+        return result;
+    }
+}
