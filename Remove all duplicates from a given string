@@ -1,0 +1,31 @@
+class Solution {
+    String removeDuplicates(String str) {
+       
+         int[] smallasc=new int[26];
+         int[] bigasc=new int[26];
+         
+         StringBuilder sb= new StringBuilder();
+         
+         for(char ch: str.toCharArray())
+         {
+             if(ch >=97 && ch<=122)
+             {
+                 if(smallasc[ch- 'a']==0)
+                 {
+                     sb.append(ch);
+                     smallasc[ch-'a']++;
+                 }
+             }
+             else{
+                 if(bigasc[ch- 'A']==0)
+                 {
+                     sb.append(ch);
+                     bigasc[ch-'A']++;
+                 }
+             }
+         }
+         
+         return sb.toString();
+       
+    }
+}
