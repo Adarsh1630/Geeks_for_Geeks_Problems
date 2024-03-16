@@ -1,0 +1,17 @@
+class Solution
+{
+    void deleteNode(Node del_node)
+    {
+         // Your code here
+       Node prev=del_node;
+       Node curr=del_node.next;
+       Node next=del_node.next.next;
+       
+       prev.data=curr.data;
+       
+       prev.next=next;
+       
+       return;
+       
+    }
+}
