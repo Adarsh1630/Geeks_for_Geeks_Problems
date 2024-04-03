@@ -1,0 +1,41 @@
+class Solution
+{
+    //Function to find the next greater element for each element of the array.
+    public static long[] nextLargerElement(long[] arr, int n)
+    { 
+        // Your code here
+        
+        Stack<Integer> s=new Stack<>();
+        long nextGreat[]=new long[arr.length];
+        
+        for(int i=arr.length-1;i>=0;i--)
+        {
+            //Step 1: if smaller element exits remove it
+            while(!s.isEmpty() && arr[s.peek()] <= arr[i])
+            {
+                s.pop();
+            }
+            
+            // Step 2: nextGreater element
+            
+            if(s.isEmpty())
+            {
+                nextGreat[i]=-1;
+            }
+            else{
+                nextGreat[i]=arr[s.peek()];
+            }
+            
+            
+            //Step 3 : push the element
+            
+            s.push(i);
+        }
+        
+        return nextGreat;
+        
+        
+        
+        
+    } 
+}
