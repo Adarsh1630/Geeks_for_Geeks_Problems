@@ -1,0 +1,29 @@
+class Solution {
+    
+    public String reverse(String S){
+        //code here
+        
+         Stack<Character> stk=new Stack<>();
+        
+        int idx=0;
+        
+        while(idx < S.length())
+        {
+            stk.push(S.charAt(idx));
+            idx++;
+        }
+        
+        StringBuilder sb=new StringBuilder("");
+        
+        while(!stk.isEmpty())
+        {
+            char ch=stk.pop();
+            sb.append(ch);
+        }
+        
+        return sb.toString();
+        
+        
+    }
+
+}
