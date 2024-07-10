@@ -1,0 +1,29 @@
+class Solution
+{ 
+    static Stack<Integer> pushAtBottom(Stack<Integer> stk, int data)
+    {
+        if(stk.isEmpty())
+        {
+            stk.push(data);
+            return null;
+        }
+        
+        int top=stk.pop();
+        pushAtBottom(stk,data);
+        stk.push(top);
+        
+        return stk;
+    }
+    static void reverse(Stack<Integer> s)
+    {
+        // add your code here
+        if(s.isEmpty())
+        {
+            return;
+        }
+        
+        int top=s.pop();
+        reverse(s);
+        pushAtBottom(s,top);
+    }
+}
