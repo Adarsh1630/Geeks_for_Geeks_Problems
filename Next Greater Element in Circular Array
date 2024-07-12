@@ -1,0 +1,36 @@
+class Solution{
+    public static long[] nextLargerElement(long[] arr, int n) { 
+        // Your code here
+        
+        Stack<Integer> stk=new Stack<>();
+        long nxt[]=new long[n];
+        
+        
+        for(int i=2*n-1;i>=0;i--)
+        {
+            //1:while
+            while(!stk.isEmpty() && stk.peek() <= arr[i%n])
+            {
+                stk.pop();
+            }
+            
+            //2:if-else
+            if(i<n)
+            {
+                if(stk.isEmpty())
+                {
+                    nxt[i]=-1;
+                }
+                else{
+                    nxt[i]=stk.peek();
+                }
+                
+            }
+            
+            //3:push
+            stk.push((int)arr[i%n]);
+        }
+        
+        return nxt;
+    } 
+}
