@@ -1,0 +1,47 @@
+class Solution
+{
+    public static Node reverseBetween(Node head, int m, int n)
+    {
+        //code here
+        if(head==null || head.next==null || m==n)
+        {
+            return head;
+        }
+        
+        Node prev=null;
+        Node curr=head;
+        Node Next;
+        
+        int i=1;
+        
+        while(curr!=null && i!=m)
+        {
+            prev=curr;
+            curr=curr.next;
+            i++;
+        }
+        
+        Node ptrStart=prev;
+        Node start=curr;
+        
+        while(curr!=null && i!=n+1)
+        {
+            Next=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=Next;
+            i++;
+        }
+        
+        start.next=curr;
+        
+        if(ptrStart!=null)
+        {
+            ptrStart.next=prev;
+        }else{
+            return prev; //this is if my left=0 means 0th index,whole list reversed
+        }
+        
+        return head;
+    }
+}
