@@ -1,0 +1,39 @@
+class Solution {
+    
+    public static boolean isIdentical(Node node, Node subtree)
+    {
+        if(node== null && subtree == null)
+        {
+            return true;
+        }
+        else if (node == null || subtree == null)
+        {
+            return false;
+        }
+        
+        if(node.data == subtree.data)
+        {
+            return isIdentical(node.left,subtree.left) && isIdentical(node.right,subtree.right);
+        }else{
+            return false;
+        }
+    }
+    public static boolean isSubtree(Node T, Node S) {
+        // add code here.
+        
+        if(T == null)
+        {
+            return false;
+        }
+        
+        if(T.data == S.data)
+        {
+            if(isIdentical(T,S))
+            {
+                return true;
+            }
+        }
+        
+        return isSubtree(T.left,S) || isSubtree(T.right,S);
+    }
+}
